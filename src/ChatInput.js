@@ -1,9 +1,9 @@
 
-function ChatInput({sendToOpenAi, setPrompt}){
-    function submit(e){
+function ChatInput({ sendToOpenAi, setPrompt }) {
+    function submit(e) {
         e.preventDefault();
     }
-    return(
+    return (
         <div className="chat-input">
             <form className="chat-container" onSubmit={(e) => submit(e)}>
                 <input type="text" placeholder="Please enter your message here" id="user-input" onChange={(e) => sendToOpenAi(e.target.value)} />
