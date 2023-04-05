@@ -16,7 +16,7 @@ const TypedReply = ({content = "", speed = 1200}) => {
                 return index+1;
             });
         }, speed);
-    }, {content, speed});
+    }, [content, speed]);
 
     let displayedContent = (content, index) => {
         if(index >= content.length - 1 ) {
