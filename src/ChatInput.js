@@ -1,6 +1,7 @@
+
 function ChatInput({sendToOpenAi, setPrompt}){
     function submit(e){
-        e.preventDefault
+        e.preventDefault();
     }
     return(
         <div className="chat-input">
@@ -11,3 +12,4 @@ function ChatInput({sendToOpenAi, setPrompt}){
         </div>
     )
 }
+export default ChatInput;
