@@ -26,3 +26,5 @@ const TypedReply = ({ content = "", speed = 1200 }) => {
     }
     return <pre className="type-writer">{displayedContent(content, index)}</pre>
 }
+
+export default TypedReply;

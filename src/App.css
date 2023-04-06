@@ -73,6 +73,7 @@
 }
 
 .openai-bubble-container {
+  
 
 }
 
@@ -94,7 +95,7 @@
 
 .user-bubble {
   border-style: dotted;
- border-width:  0px medium 0px medium;
+  border-width:  0px medium 0px medium;
   color: #ffffff;
   width: 100%;
 }
@@ -137,6 +138,13 @@
 }
 
 .input-area button {
+     /* width: 10%; */
+  /* padding-top: 20px;
+  padding-bottom: 5px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; */
 background: transparent;
     border: 0px;
     padding: 0px;
@@ -144,8 +152,16 @@ background: transparent;
     font-size: 1em;
 }
 
+/* .input-area button {
+  background: transparent;
+      border: 0px;
+      padding: 0px;
+      margin: 0px;
+      font-size: 1em;
+  } */
+
 .input-area i {
-  color: #fd7e4b;
+  color: #ffffff;
   margin: 0.5em;
   font-size: 1.5em;
   cursor: pointer;

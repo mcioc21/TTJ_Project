@@ -1,15 +1,16 @@
-
-function ChatInput({ sendToOpenAi, setPrompt }) {
-    function submit(e) {
+function ChatInput({ handleChange, handleClick }) {
+    function handleSubmit(e) {
         e.preventDefault();
     }
+
     return (
-        <div className="chat-input">
-            <form className="chat-container" onSubmit={(e) => submit(e)}>
-                <input type="text" placeholder="Please enter your message here" id="user-input" onChange={(e) => sendToOpenAi(e.target.value)} />
-                <button type="submit" onClick={setPrompt}>Send</button>
+        <div className="input-area">
+            <form className="input-container" onSubmit={(e) => handleSubmit(e)}>
+                    <input type="text" placeholder="Type your message here" id="user-input" onChange={(e) => handleChange(e.target.value)} />
+                    <button type="submit" onClick={handleClick}><i className="fas fa-arrow-up" aria-hidden="true"></i></button>
             </form>
         </div>
     )
 }
+
 export default ChatInput;
