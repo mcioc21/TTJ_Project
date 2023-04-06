@@ -53,6 +53,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <div className='chat-container'>
+        <ChatHistory chatHistory={chatData.history} response={chatData.response} />
         <ChatInput sendToOpenAi={setPrompt} setPrompt={generateResponse}></ChatInput>
       </div>
     </div>
