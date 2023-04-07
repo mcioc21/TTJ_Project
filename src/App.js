@@ -5,17 +5,19 @@ import ChatHistory from './ChatHistory';
 import ChatInput from './ChatInput';
 import { useState } from 'react';
 import RadioButton from './RadioButton';
-
+// import ImageResponse from './ImageResponse';
 
 function App() {
 
   const [prompt, setPrompt] = useState("");
 
-  const [chatData, setChatData] = useState({ "history": [{ "type": "openai", "data": "Choose a letter:" }], "response": "" });
+  const [chatData, setChatData] = useState({ "history": [{ "type": "openai", "data": "Choose a letter for text input or an animal for image generation:" }], "response": "" });
 
   const [choice, setChoice] = useState("Text")
 
   const [image, setImage] = useState("");
+
+  // let imageVerify = "";
 
   const configuration = new Configuration({
     apiKey: process.env.REACT_APP_Open_AI_Key,
@@ -34,7 +36,7 @@ function App() {
     newChatData.history.push({ "type": "user", "data": prompt });
 
     if(choice === "Text"){
-      let openAiInput = "I will give you a letter you give me an animal that starts with that letter\n" + prompt + ':';
+      let openAiInput = "\n" + prompt + ':';
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: openAiInput,
@@ -56,6 +58,7 @@ function App() {
         n: 1,
         size: "256x256",
       });
+      //imageVerify = image;
       console.log('response', res);
       let processedImageResponse = res.data.data[0].url;
       //processedImageResponse = processedImageResponse.length === 0 ? "No response" : processedImageResponse;
@@ -72,7 +75,7 @@ function App() {
       
       <div className='chat-container'>
         <ChatHistory chatHistory={chatData.history} response={chatData.response}>  </ChatHistory>
-        <img className="result-image" src={image} alt="generated img" />
+        <img className="result-image" src={image} alt="generated img"/>
         <ChatInput sendToOpenAI={setPrompt} setInput={generateResponse}></ChatInput>
         
       </div>
