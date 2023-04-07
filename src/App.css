@@ -166,3 +166,15 @@ background: transparent;
   font-size: 1.5em;
   cursor: pointer;
 }
+
+.radio-button {
+  text-align: center;
+  margin: 0.5em;
+  font-size: 1.1em;
+  border-width:2px;
+  border-style:solid;
+  border-color:rgb(255, 255, 255);
+  padding-inline: 5px;
+  border-style: dotted;
+  /* color:#ffffff; */
+}
