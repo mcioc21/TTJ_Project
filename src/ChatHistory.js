@@ -19,7 +19,7 @@ function ChatHistory({ chatHistory , response}) {
                         {/* {<TypedReply content={[...response]} speed={1000} /> } */}
                         { <TypedReply content={response} speed={700} />  }
                     </div>
-                </div>  
+                </div>
             }
         </div>
     )
