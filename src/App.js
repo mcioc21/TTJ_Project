@@ -15,6 +15,8 @@ function App() {
 
   const [choice, setChoice] = useState("Text")
 
+  const [image, setImage] = useState("");
+
   const configuration = new Configuration({
     apiKey: process.env.REACT_APP_Open_AI_Key,
   });
@@ -43,22 +45,35 @@ function App() {
       presence_penalty: 0,
       stop: ["\n"],
     });
-  
-    console.log('response', response);
-  
     let processedResponse = response.data.choices[0].text;
     newChatData.response = processedResponse.length === 0 ? "No response" : processedResponse;
     setChatData(newChatData);
   }
+  else if
+    (choice === "Image"){
+      const res = await openai.createImage({
+        prompt: prompt,
+        n: 1,
+        size: "256x256",
+      });
+      console.log('response', res);
+      let processedImageResponse = res.data.data[0].url;
+      //processedImageResponse = processedImageResponse.length === 0 ? "No response" : processedImageResponse;
+      setImage(processedImageResponse);
+    }
+  
   }
+  
 
   return (
     <div className="App">
       <Header></Header>
       <div className='radio-button'> <RadioButton choice ={choice} setChoice = {setChoice}></RadioButton>  </div>
+      
       <div className='chat-container'>
-        <ChatHistory chatHistory={chatData.history} response={chatData.response} />
-        <ChatInput handleChange={setPrompt} handleClick={generateResponse}></ChatInput>
+        <ChatHistory chatHistory={chatData.history} response={chatData.response}>  </ChatHistory>
+        <img className="result-image" src={image} alt="generated img" />
+        <ChatInput sendToOpenAI={setPrompt} setInput={generateResponse}></ChatInput>
         
       </div>
     </div>
